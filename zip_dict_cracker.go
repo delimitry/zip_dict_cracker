@@ -76,6 +76,13 @@ func main() {
 	// prepare command-line parsing
 	zipFilePtr := flag.String("f", "", "Path to zip file")
 	dictFilePtr := flag.String("d", "", "Path to dictionay file")
+
+	flag.Usage = func() {
+		fmt.Printf("Usage: zip_dict_cracker [options]\n\n")
+		flag.PrintDefaults()
+		os.Exit(0)
+	}
+
 	flag.Parse()
 	if *zipFilePtr == "" || *dictFilePtr == "" {
 		flag.Usage()
