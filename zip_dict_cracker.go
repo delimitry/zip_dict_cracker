@@ -16,8 +16,8 @@ import (
 func unzip(filename string, password string) bool {
 	// open a zip archive for reading
 	r, err := zip.OpenReader(filename)
-	if nil != err {
-		panic(err)
+	if err != nil {
+		return false
 	}
 	defer r.Close()
 	// create a buffer to write archive to
